@@ -29,7 +29,7 @@ Synchronous Action:<br/>
 const syncType = `SYNCTYPE`;
 const initState = {};
 //reducer
-export const syncReducer = createSyncReducer(initState, myType);
+export const syncReducer = createSyncReducer(initState, syncType);
 //action
 export function syncAction(data) {
     return {
@@ -52,7 +52,8 @@ export const testReducer = createAsynReducer(initState, pre);
 export function test() {
     return {
         types: createAsynType(pre),
-        // shouldSaveData: false,
+        shouldSaveData: true, //default: true
+        shouldfetchAPI = getState => getState.myReducers.testReducer //default: () => true
         fetchAPI: () => new Promise(resolve => {
             const response = {
                 data: {
@@ -72,7 +73,7 @@ export function test() {
         },
         callback: {
             successCall: (data, dispatch, getState) => console.log('succeed', data),
-            // successCall: dispatch => dispatch(syncAction()),//when shouldSaveData: false,
+            // successCall: dispatch => dispatch(syncAction()),//when shouldSaveData: false
             failureCall: () => console.log('failed'),
         },
     };
