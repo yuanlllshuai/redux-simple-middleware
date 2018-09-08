@@ -5,7 +5,7 @@ a simple redux middleware and some redux API
 
 ### Usage:<br/>
 configureStore.js:<br/>
-```
+```javascript
 import { createStore, applyMiddleware, compose } from 'redux'
 import rootReducer from './rootReducer'
 import simpleMiddleware from 'redux-simple-middleware'
@@ -21,11 +21,11 @@ export default function configureStore(preloadedState) {
 }
 ```
 action.js:<br/>
-```
+```javascript
 import { createAsynType, createAsynReducer, createSyncReducer } from 'redux-simple-middleware/lib/reduxAPI'
 ```
 Synchronous Action:<br/>
-```
+```javascript
 const syncType = `SYNCTYPE`;
 const initState = {};
 //reducer
@@ -39,7 +39,7 @@ export function syncAction(data) {
 }
 ```
 Asynchronous Action:<br/>
-```
+```javascript
 const initState = {
     isFecting: false,
     isSucceed: true,
