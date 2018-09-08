@@ -53,7 +53,7 @@ export function test() {
     return {
         types: createAsynType(pre),
         shouldSaveData: true, //default: true
-        shouldfetchAPI = getState => getState.myReducers.testReducer //default: () => true
+        shouldfetchAPI: getState => getState.myReducers.testReducer //default: () => true
         fetchAPI: () => new Promise(resolve => {
             const response = {
                 data: {
