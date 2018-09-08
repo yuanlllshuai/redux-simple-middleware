@@ -1,5 +1,5 @@
 # redux-simple-middleware
-一个简单的redux中间件及reduxAPI
+a simple redux middleware and some redux API
 
 安装方法 npm install --save redux-simple-middleware
 
