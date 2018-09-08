@@ -68,7 +68,7 @@ export function test() {
         dealData: data => {
             return {
                 ...data,
-                value: `成功${data.value}`
+                value: `hello${data.value}`
             }
         },
         callback: {
