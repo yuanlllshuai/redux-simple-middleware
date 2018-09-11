@@ -1,4 +1,5 @@
 # redux-simple-middleware
+[![npm version](https://img.shields.io/npm/v/redux-simple-middleware.svg)](https://www.npmjs.com/package/redux-simple-middleware)<br/>
 a simple redux middleware and some redux API
 
 ## Install:
