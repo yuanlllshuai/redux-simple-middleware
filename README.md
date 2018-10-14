@@ -24,21 +24,21 @@ export default function configureStore(preloadedState) {
 ```
 action.js:<br/>
 ```javascript
-import { createAsynType, createAsynReducer, createSyncReducer } from 'redux-simple-middleware/lib/reduxAPI'
+import { createAction, createReducer, createAsynType, createAsynReducer } from 'redux-simple-middleware/lib/reduxAPI'
+const pre = 'asyc';//custom
 ```
 Synchronous Action:<br/>
 ```javascript
-const syncType = `SYNCTYPE`;
-const initState = {};
+const syncType = `${pre}_SYNC_STRING_DATA`;
+const initState = '';
 //reducer
-export const syncReducer = createSyncReducer(initState, syncType);
-//action
-export function syncAction(data) {
-    return {
-        type: syncType,
-        data
+export const syncReducer = createReducer('', {
+    [syncType](state, action) {
+        return action.stringData;
     }
-}
+})
+//action
+export const syncAction = createAction(syncType, 'stringData');
 ```
 Asynchronous Action:<br/>
 ```javascript
@@ -47,7 +47,6 @@ const initState = {
     isSucceed: true,
     data: null,
 }
-const pre = 'asyc';//custom
 //reducer
 export const testReducer = createAsynReducer(initState, pre);
 //action
@@ -67,6 +66,13 @@ export function test() {
             };
             resolve(response);
         }),
+        resHandle: response => {
+            if (response.data.errCode === 200) {
+                return true
+            } else {
+                return false
+            }
+        },
         dealData: data => {
             return {
                 ...data,
