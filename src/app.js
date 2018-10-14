@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { test } from './testRedux/actions'
+import { syncAction, asynAction } from './testRedux/actions'
 import { connect } from 'react-redux'
 
 class App extends Component {
@@ -10,7 +10,8 @@ class App extends Component {
     }
     testRedux = () => {
         const { dispatch } = this.props;
-        dispatch(test());
+        dispatch(syncAction('sync'));
+        dispatch(asynAction());
     }
 }
 

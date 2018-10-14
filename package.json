@@ -40,6 +40,6 @@
     "react-dom": "^16.5.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
-    "redux-simple-middleware": "^1.0.2"
+    "redux-simple-middleware": "^1.0.3"
   }
 }
