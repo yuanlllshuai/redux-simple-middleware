@@ -1,9 +1,5 @@
 // import axios from "axios";
-<<<<<<< HEAD
 import { createAction, createReducer, createAsynType, createAsynReducer } from 'redux-simple-middleware/lib/reduxAPI'
-=======
-import { createAsynType, createAsynReducer, createSyncReducer } from 'redux-simple-middleware/lib/reduxAPI'
->>>>>>> e65ff41606cba8ad15f3bf627bbe30fefd406202
 
 const initState = {
     isFecting: false,
@@ -12,7 +8,6 @@ const initState = {
 }
 
 const pre = 'test';
-<<<<<<< HEAD
 
 const syncType = `${pre}_SYNC_DATA`;
 export const syncAction = createAction(syncType, 'stringData');
@@ -24,22 +19,6 @@ export const syncReducer = createReducer('', {
 
 export const testReducer = createAsynReducer(initState, pre);
 export function asynAction() {
-=======
-const successType = `${pre}_SUCCESS`;
-
-export const testReducer = createAsynReducer(initState, pre);
-
-export const syncReducer = createSyncReducer({}, successType);
-
-function syncAction() {
-    return {
-        type: successType,
-        data: { value: 'success' }
-    }
-}
-
-export function test() {
->>>>>>> e65ff41606cba8ad15f3bf627bbe30fefd406202
     return {
         types: createAsynType(pre),
         // shouldSaveData: false,  //1
@@ -60,7 +39,6 @@ export function test() {
                 value: `成功${data.value}`
             }
         },
-<<<<<<< HEAD
         resHandle: response => {
             if (response.data.errCode === 200) {
                 return true
@@ -70,10 +48,6 @@ export function test() {
         },
         callback: {
             successCall: () => console.log('成功'),
-=======
-        callback: {
-            successCall: (_, dispatch) => dispatch(syncAction()),
->>>>>>> e65ff41606cba8ad15f3bf627bbe30fefd406202
             // successCall: dispatch => dispatch(syncAction()),//1
             failureCall: () => console.log('失败'),
         },
